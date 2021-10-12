@@ -44,7 +44,6 @@ module.exports =
     },
     update: async (req,res)=>{
       try{
-     
         if(!req.params.id){
           return SendResponse(res,null,false,"Id missing")
         }
@@ -52,13 +51,11 @@ module.exports =
           let roomClassDetails = await roomClass.findOneAndUpdate({_id:req.params.id},req.body)
           roomClassDetails = await roomClassDetails.save()
           if(roomClassDetails){
-            console.log(roomClassDetails)
             return SendResponse(res,roomClassDetails,false,"success")
           }else{
             return SendResponse(res,null,false,"data not saved")
           }
         }
-
       }catch(error){
         return res.send({
           ResponseMessage:error.message||"Internal server Error",
