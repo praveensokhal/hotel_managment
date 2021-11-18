@@ -5,6 +5,7 @@ const create = Joi.object().keys({
     customerId:Joi.custom(objectId).required(),
     roomId:Joi.custom(objectId).required(),
     checkIn:Joi.date().required(),
+    checkOut:Joi.date().required(),
 })
 
 const update = Joi.object().keys({
